@@ -30,7 +30,7 @@ export default (
         },
         prev,
         kind,
-        history: undefined
+        history
       }
     }
   }
@@ -39,6 +39,7 @@ export default (
 export const nestHistory = (history: History) =>
   (history.entries
     ? {
+      basename: history.basename,
       index: history.index,
       length: history.entries.length,
       entries: history.entries.slice(0) // history.entries.map(entry => entry.pathname)

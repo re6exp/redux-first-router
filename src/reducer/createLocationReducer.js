@@ -33,7 +33,10 @@ export default (initialState: LocationState, routesMap: RoutesMap) => (
       kind: action.meta.location.kind,
       history: action.meta.location.history,
       hasSSR: state.hasSSR,
-      routesMap
+      routesMap,
+      basename: action.meta.location.history.createHref(
+        action.meta.location.current
+      )
     }
   }
 
@@ -60,5 +63,6 @@ export const getInitialState = (
   kind: undefined,
   history: nestHistory(history),
   hasSSR: isServer() ? true : undefined, // client uses initial server `hasSSR` state setup here
-  routesMap
+  routesMap,
+  basename: ''
 })

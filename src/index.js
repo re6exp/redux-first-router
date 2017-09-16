@@ -11,6 +11,7 @@ export {
   prevPath,
   nextPath,
   history,
+  createHref,
   scrollBehavior,
   updateScroll,
   selectLocationState,
@@ -25,6 +26,11 @@ export { default as actionToPath } from './pure-utils/actionToPath'
 export { default as pathToAction } from './pure-utils/pathToAction'
 export { default as isLocationAction } from './pure-utils/isLocationAction'
 export { default as setKind } from './pure-utils/setKind'
+export {
+  createBrowserHistory,
+  createMemoryHistory,
+  createHashHistory
+} from './pure-utils/createHistory'
 
 export type {
   RouteString,
@@ -46,6 +52,7 @@ export type {
   Push,
   GoBack,
   History,
+  HistoryOptions,
   HistoryLocation,
   Document,
   Navigators,

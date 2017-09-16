@@ -173,15 +173,19 @@ export type ReceivedActionMeta = {
 
 export type Listener = (HistoryLocation, HistoryAction) => void
 export type Listen = Listener => void
+export type CreateHref = Location => string
 export type Push = (pathname: string) => void
 export type Replace = (pathname: string) => void
 export type GoBack = () => void
 export type GoForward = () => void
 export type Go = number => void
 export type CanGo = number => boolean
+export type Basename = () => string
 
 export type History = {
+  basename: Basename,
   listen: Listen,
+  createHref: CreateHref,
   push: Push,
   replace: Replace,
   goBack: GoBack,
@@ -194,7 +198,18 @@ export type History = {
   location: HistoryLocation
 }
 
+export type HistoryOptions = {
+  basename: string,
+  forceRefresh: boolean,
+  hashType: string,
+  initialEntries: Array<string>,
+  initialIndex: number,
+  keyLength: number,
+  getUserConfirmation: (message: string, callback: () => void) => void
+}
+
 export type HistoryLocation = {
+  basename: string,
   pathname: string,
   search?: string
 }

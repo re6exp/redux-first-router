@@ -544,6 +544,8 @@ let _selectLocationState
 let _options
 let _store
 
+export const createHref = (location: Location) => _history.createHref(location)
+
 export const push = (pathname: string) => _history.push(pathname)
 
 export const replace = (pathname: string) => _history.replace(pathname)
